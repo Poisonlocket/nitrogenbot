@@ -59,19 +59,9 @@ async def magic_eightball(ctx):
         await ctx.send(response)
 
 
-@client.hybrid_command('freeze', description='a command about freeze')
-async def freeze(ctx):
-    await ctx.send("moin moin")
 
 
-@client.hybrid_command(name='isigia', description='Isigia')
-async def freeze(ctx):
-    await ctx.send("im a yahoo")
 
-
-@client.hybrid_command(name='yuqi', description='yuqi')
-async def yuqi(ctx):
-    await ctx.send('yuqi')
 
 
 asyncio.run(main())
