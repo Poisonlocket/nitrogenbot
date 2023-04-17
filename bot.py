@@ -7,7 +7,6 @@ from os import getenv
 import os
 import asyncio
 
-
 load_dotenv("token.env")
 my_token = getenv("TOKEN")
 my_token = str(my_token)
@@ -15,16 +14,20 @@ my_token = str(my_token)
 client = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 bot_status = cycle(['Bubbling', 'steaming', 'Cooling'])
 
-#loading cogs
+
+# loading cogs
 async def load():
     for filename in os.listdir('./cogs'):
         if filename.endswith('.py'):
             await client.load_extension(f"cogs.{filename[:-3]}")
 
+
 async def main():
     async with client:
         await load()
         await client.start(my_token)
+
+
 # changing status
 @tasks.loop(seconds=30)
 async def change_status():
