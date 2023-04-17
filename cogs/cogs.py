@@ -36,7 +36,7 @@ class Mycogs(commands.Cog):
         await ctx.channel.purge(limit=count)
         await ctx.send(f'{count} messages have been deleted')
 
-    @commands.hybrid_command(name='Kick')
+    @commands.hybrid_command(name='kick')
     @commands.has_permissions(kick_members=True)
     async def kick(self, ctx, member: discord.Member, *, modreason):
         await ctx.guild.kick(member)
