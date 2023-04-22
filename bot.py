@@ -59,9 +59,18 @@ async def magic_eightball(ctx):
         await ctx.send(response)
 
 
+@client.hybrid_command(name='kick')
+@commands.has_permissions(kick_members=True)
+async def kick(ctx, member: discord.Member, *, modreason):
+    await ctx.guild.kick(member)
 
+    conf_embed = discord.Embed(title='Success!', colour=discord.Color.green())
+    conf_embed.add_field(name='Kicked:',
+                         value=f'{member.mention} has been kicked from the server by {ctx.author.mention}.',
+                         inline=False)
+    conf_embed.add_field(name='Reason:', value=modreason, inline=False)
 
-
+    await ctx.send(embed=conf_embed)
 
 
 asyncio.run(main())
